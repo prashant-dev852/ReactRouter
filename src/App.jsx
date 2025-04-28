@@ -12,6 +12,7 @@ import NavBar from "./components/Home/NavBar";
 import Course from "./components/Home/Course";
 import MockTest from "./components/Home/MockTest";
 import Report from "./components/Home/Report";
+import Card from "./components/Card.jsx";
 // import User from "./components/User";
 const User = lazy(() => import("./components/User.jsx")); // dynamic import
 
@@ -74,6 +75,7 @@ const router = createBrowserRouter([
 function App() {
   const [count, setCount] = useState(0);
   const [load, setLoad] = useState(false);
+  const [name, setName] = useState("");
 
   const handleClick = () => {
     setLoad((prevLoad) => !prevLoad);
@@ -92,6 +94,8 @@ function App() {
           <User />
         </Suspense>
       ) : null}
+      <Card title="Card1" name={name} setName={setName} />
+      <Card title="Card2" name={name} setName={setName} />
     </>
   );
 }
